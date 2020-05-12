@@ -57,6 +57,7 @@ class SMPPServerSessionBoundTX extends SMPPServerSessionBound implements
             ServerResponseHandler responseHandler) throws IOException {
         try {
             SubmitSm submitSm = pduDecomposer.submitSm(pdu);
+            submitSm.setArrivalEpochTime(pduHeader.getArrivalEpochTime());
             MessageId messageId = responseHandler.processSubmitSm(submitSm);
             logger.debug("Sending response with message_id {} for request with sequence_number {}",
                 messageId, pduHeader.getSequenceNumber());

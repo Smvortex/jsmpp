@@ -51,6 +51,7 @@ public class DefaultPDUReader implements PDUReader {
         header.setCommandId(in.readInt());
         header.setCommandStatus(in.readInt());
         header.setSequenceNumber(in.readInt());
+    	header.setArrivalEpochTime(System.currentTimeMillis());
         return header;
     }
 
